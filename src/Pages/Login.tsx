@@ -10,14 +10,21 @@ interface Props {
 const Login: React.FC<Props> = ({ setIsAuth }) => {
     const history = useHistory();
     const handleLogin = () => {
+
+      if (initialValues.username == "akhil" && initialValues.password == "akhil@123")
+      {
         setIsAuth(true);
         history.push("/profile");
+      }
+      else 
+      {
+        setIsAuth(false);
+      }
     };
-    const initialValues = { name: "", password: "" };
+    const initialValues = { username: "akhil", password: "akhil@123" };
     const [formValues, setFormValues] = useState(initialValues);
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormValues({ ...formValues, [name]: value });
@@ -35,19 +42,21 @@ const Login: React.FC<Props> = ({ setIsAuth }) => {
           console.log(formValues);
         }
       }, [formErrors]);
-
+      
       const validate = (values) => {
         const errors = {};
-        if (!values.username) {
-          errors.username = "Username is required!";
-        }
+  
+        // if (!values.username) {
+        //   errors.username = "Username is required!";
+        // }
 
-        if (!values.password) {
-          errors.password = "Password is required";
-        }
+        // if (!values.password) {
+        //   errors.password = "Password is required";
+        // }
         return errors;
       };
     return( 
+    
 
     <form onSubmit={handleSubmit}>
     <h1>Login Form</h1>
@@ -57,10 +66,9 @@ const Login: React.FC<Props> = ({ setIsAuth }) => {
     type="text"
     name="username"
     placeholder="Username"
-    value={formValues.name}
+    value={formValues.username}
     onChange={handleChange}
     />
-    <p>{formErrors.username}</p>
     <br></br>
     <label>password :</label>
     <input
@@ -70,7 +78,6 @@ const Login: React.FC<Props> = ({ setIsAuth }) => {
     value={formValues.password}
     onChange={handleChange}
     />
-    <p>{formErrors.password}</p>
     <br></br>
     <button onClick={() => handleLogin()}>Submit</button>
     </div>
