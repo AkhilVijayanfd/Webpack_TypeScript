@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
-import '../styles.css';
+// import '../styles.css';
 
 interface Props {
     setIsAuth: React.Dispatch<React.SetStateAction<boolean>>;

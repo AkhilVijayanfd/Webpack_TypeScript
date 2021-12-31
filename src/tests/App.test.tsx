@@ -1,17 +1,15 @@
 import React from "react";
 import App from '../App';
-import render from 'enzyme';
 import  { shallow } from "enzyme";
 
-it('renders without crashing', () =>{
-    render(<App />);
+it("renders without crashing", () =>{
+    shallow(<App />);
 });
 
-// describe( "Search Component", () => {
-//     test ("renders", () =>{
-//         const wrapper = shallow(<App />);
+it("renders Account header", () => {
+    const wrapper = shallow(<App />);
+    const welcome = <h1>Welcome to React Webpack with TypeScript</h1>;
+    expect(wrapper.contains(welcome)).toEqual(true);
+  });
 
-//         expect(wrapper.exists()).toBe(true);
-//     });
-// });
 
