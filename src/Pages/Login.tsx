@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
-// import '../styles.css';
+import '../styles.css';
 
 interface Props {
     setIsAuth: React.Dispatch<React.SetStateAction<boolean>>;
@@ -45,14 +45,6 @@ const Login: React.FC<Props> = ({ setIsAuth }) => {
       
       const validate = (values) => {
         const errors = {};
-  
-        // if (!values.username) {
-        //   errors.username = "Username is required!";
-        // }
-
-        // if (!values.password) {
-        //   errors.password = "Password is required";
-        // }
         return errors;
       };
     return( 
