@@ -2,12 +2,16 @@
 import { BrowserRouter as Router,Switch,Route,Link } from 'react-router-dom';
 import Home from '../Pages/Home';
 import About from '../Pages/About';
-import Dashboard from '../Pages/Dashboard';
-
+import ProtectedRoute from './ProtectedRoute';
+import Login from '../Pages/Login';
+import { useState } from 'react';
+import Profile from '../Pages/Profile';
 
 
 function Routes () 
 {
+
+    const [isAuth, setIsAuth] = useState(false);
     return (
 
     <Router>
@@ -21,7 +25,7 @@ function Routes ()
                 <Link to="/about">About</Link>
             </li>
             <li>
-                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/login">Login</Link>
             </li>
         </ul>
 
@@ -31,10 +35,9 @@ function Routes ()
             </Route>
             <Route path="/about">
                 <About />
-            </Route>
-            <Route path="/dashboard">
-                <Dashboard />
-            </Route>
+            </Route> 
+            <Route path="/login" component={() => <Login setIsAuth = {setIsAuth}/>}/>
+           <ProtectedRoute isAuth={isAuth} path="/profile" component={Profile} />
         </Switch>
     </div>
 </Router>
