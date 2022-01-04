@@ -6,60 +6,42 @@ import '../styles.css';
 interface Props {
     setIsAuth: React.Dispatch<React.SetStateAction<boolean>>;
 }
+ const Value = [{username:"akhil", password:"akhil@123"}]
 
 const Login: React.FC<Props> = ({ setIsAuth }) => {
     const history = useHistory();
-    const handleLogin = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const handleLogin = (username: string, password: string) => {
 
-      if (initialValues.username == "akhil" && initialValues.password == "akhil@123")
-      {
-        setIsAuth(true);
-        history.push("/profile");
-      }
-      else 
-      {
-        setIsAuth(false);
-      }
-    };
-    const initialValues = { username: "akhil", password: "akhil@123" };
-    const [formValues, setFormValues] = useState(initialValues);
-    const [formErrors, setFormErrors] = useState({});
-    const [isSubmit, setIsSubmit] = useState(false);
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormValues({ ...formValues, [name]: value });
-      };
-    
-    const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmit(true);
-    };
 
-    useEffect(() => {
-        console.log(formErrors);
-        if (Object.keys(formErrors).length === 0 && isSubmit) {
-          console.log(formValues);
+      for (let i =0; i < Value.length; i++){
+        if  (username === Value[i].username && password === Value[i].password)
+        {
+          setIsAuth(true);
+          history.push("/profile");
         }
-      }, [formErrors]);
+        else 
+        {
+          setIsAuth(false);
+        }
+      }
       
-      const validate = (values) => {
-        const errors = {};
-        return errors;
-      };
+  };
+
     return( 
     
 
-    <form onSubmit={handleSubmit}>
-    <h1>Login Form</h1>
+  
+   
     <div className="login">
-    <label>Username :</label>
+    <h1>Login Form</h1>
+    <label>username :</label>
     <input 
     type="text"
     name="username"
     placeholder="Username"
-    value={formValues.username}
-    onChange={handleChange}
+    onChange={(e) => setUsername(e.target.value)}
     />
     <br></br>
     <label>password :</label>
@@ -67,13 +49,12 @@ const Login: React.FC<Props> = ({ setIsAuth }) => {
     type="password"
     name="password"
     placeholder="password"
-    value={formValues.password}
-    onChange={handleChange}
+    onChange={ (e) => setPassword(e.target.value)}
     />
     <br></br>
-    <button onClick={() => handleLogin()}>Submit</button>
+    <button onClick={() => handleLogin(username, password)}>Submit</button>
     </div>
-    </form>
+
     );
 };
 
