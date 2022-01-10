@@ -4,6 +4,10 @@
   "description": "",
   "main": "index.js",
   "jest": {
+    "verbose": true,
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    },
     "collectCoverageFrom": [
       "src/**/*.{ ts, tsx }"
     ],
@@ -20,11 +24,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "css-modules-typescript-loader": "^4.0.1",
+    "identity-obj-proxy": "^3.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
     "react-router-dom": "^5.3.0",
     "redux": "^4.1.2",
+    "ts-loader": "^9.2.6",
     "typescript-plugin-css-modules": "^3.4.0"
   },
   "devDependencies": {

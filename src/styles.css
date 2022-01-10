@@ -1,11 +1,10 @@
-h1 {
-    color:aqua;
-}
-.login{
+
+.form{
     width: auto;
     height: 600px;
+    background-color: aqua;
 }
-.input{
+/* .input{
     align-items: center;
     justify-items: center;
-}
+} */

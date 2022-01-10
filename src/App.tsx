@@ -1,5 +1,5 @@
 
-import { styles } from '../styles/styles.css';
+// import { styles } from 'styles.css';
 import Routes from './routes/Routes';
 
 
