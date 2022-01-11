@@ -1,9 +1,10 @@
 
-import './styles.css';
+import { styles } from 'styles.css';
 import Routes from './routes/Routes';
 
 
-function App ()  {
+function App ()  
+{
     return( 
     <div>
     <h1>Welcome to React Webpack with TypeScript</h1>
