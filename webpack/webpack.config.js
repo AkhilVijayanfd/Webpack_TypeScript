@@ -19,7 +19,6 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        include: path.join(__dirname, 'src'),
         use: [ 
           { 
             loader:'style-loader'
@@ -43,7 +42,7 @@ module.exports = {
     ],
   },
   devServer : {
-    port: 9001
+    port: 9002
   },
   output: {
     path: path.resolve(__dirname, '..', './build'),

@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { styles } from  '../styles.css';
+import  Styles  from  '../styles.css';
 
 
 interface Props {
@@ -35,7 +35,7 @@ const Login: React.FC<Props> = ({ setIsAuth }) => {
 
   
    
-    <div className="form">
+    <div className={Styles.form}>
     <h1>Login Form</h1>
     <label>username :</label>
     <input 

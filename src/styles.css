@@ -2,6 +2,12 @@
 .form{
     width: auto;
     height: 600px;
+    background-color: rgb(234, 0, 255);
+}
+
+.form1{
+    width: auto;
+    height: auto;
     background-color: aqua;
 }
 /* .input{
