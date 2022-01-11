@@ -16,7 +16,7 @@ function Routes ()
 
     <Router>
     <div>
-    <h1>React TypeScript Webpack Start</h1>
+    
         <ul>
             <li>
                 <Link to="/" >Home</Link>

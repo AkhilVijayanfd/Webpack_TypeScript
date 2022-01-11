@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
-// import { styles } from  '../styles.css';
+import { styles } from  '../styles.css';
 
 
 interface Props {

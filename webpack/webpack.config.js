@@ -42,6 +42,9 @@ module.exports = {
       //  },
     ],
   },
+  devServer : {
+    port: 9001
+  },
   output: {
     path: path.resolve(__dirname, '..', './build'),
     filename: 'bundle.js',
