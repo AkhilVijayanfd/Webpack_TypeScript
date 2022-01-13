@@ -1,11 +1,12 @@
 
-import './styles.css';
+import  Styles  from './styles.css';
 import Routes from './routes/Routes';
 
 
-function App ()  {
+function App ()  
+{
     return( 
-    <div>
+    <div className={Styles.form1}>
     <h1>Welcome to React Webpack with TypeScript</h1>
     <Routes />
     </div>
