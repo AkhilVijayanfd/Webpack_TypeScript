@@ -1,35 +1,32 @@
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-function About(props: any) {
-    console.log(" print ", props); 
-    return(
 
-        <div>
-        
-            <h2>About</h2>
-            <div>
-                Age: <span>{props.age}</span>
-            </div>
-            <button onClick={props.onAgeUp}>Age Up</button>
-            <button onClick={props.onAgeDown}>Age Down</button>
-        </div>
-    );
+import React from "react";
+import { NewNoteInput } from "../NewNoteInput";
+import { useSelector, useDispatch } from "react-redux";
+import { NotesState } from "../notesReducer";
+import { addNote } from "../actions";
+
+function About() {
+  const notes = useSelector<NotesState, NotesState["notes"]>(
+    (state) => state.notes
+  );
+  const dispatch = useDispatch();
+
+  const onAddNote = (note: string) => {
+    dispatch(addNote(note));
+  };
+
+  return (
+    <>
+      <NewNoteInput addNote={onAddNote} />
+      <hr />
+      <ul>
+        {notes.map((note) => {
+          return <li key={note}>{note}</li>;
+        })}
+      </ul>
+    </>
+  );
 }
 
-const mapStateToProps = (state: { age: any; }) => {
-    return {
-        age: state.age
-    };
-
-};
-
-
-
-const mapDispatchToProps = (dispatch: (arg0: { type: string; value: number; }) => any) =>{
-    return {
-        onAgeUp: () => dispatch({type: 'AGE_UP', value: 1}),
-        onAgeDown: () => dispatch({type: 'AGE_DOWN', value: 1})
-    };
-}
-export default connect( mapStateToProps,mapDispatchToProps ) (About);
+export default About;
