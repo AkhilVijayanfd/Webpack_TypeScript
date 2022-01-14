@@ -1,27 +1,31 @@
 
 import { BrowserRouter as Router,Switch,Route,Link } from 'react-router-dom';
 import Home from '../Pages/Home';
-import About from '../Pages/About';
-import Dashboard from '../Pages/Dashboard';
-
+import Todo from '../Pages/Todo';
+import ProtectedRoute from './ProtectedRoute';
+import Login from '../Pages/Login';
+import { useState } from 'react';
+import Profile from '../Pages/Profile';
 
 
 function Routes () 
 {
+
+    const [isAuth, setIsAuth] = useState(false);
     return (
 
     <Router>
     <div>
-    <h1>React TypeScript Webpack Start</h1>
+    
         <ul>
             <li>
                 <Link to="/" >Home</Link>
             </li>
             <li>
-                <Link to="/about">About</Link>
+                <Link to="/todo">Todo</Link>
             </li>
             <li>
-                <Link to="/dashboard">Dashboard</Link>
+                <Link to="/login">Login</Link>
             </li>
         </ul>
 
@@ -29,12 +33,11 @@ function Routes ()
             <Route exact path="/">
                 <Home />
             </Route>
-            <Route path="/about">
-                <About />
-            </Route>
-            <Route path="/dashboard">
-                <Dashboard />
-            </Route>
+            <Route path="/todo">
+                <Todo />
+            </Route> 
+            <Route path="/login" component={() => <Login setIsAuth = {setIsAuth}/>}/>
+           <ProtectedRoute isAuth={isAuth} path="/profile" component={Profile} />
         </Switch>
     </div>
 </Router>
