@@ -42,7 +42,7 @@ module.exports = {
     ],
   },
   devServer : {
-    port: 9004
+    port: 3000
   },
   output: {
     path: path.resolve(__dirname, '..', './build'),

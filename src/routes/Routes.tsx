@@ -1,7 +1,7 @@
 
 import { BrowserRouter as Router,Switch,Route,Link } from 'react-router-dom';
 import Home from '../Pages/Home';
-import About from '../Pages/About';
+import Todo from '../Pages/Todo';
 import ProtectedRoute from './ProtectedRoute';
 import Login from '../Pages/Login';
 import { useState } from 'react';
@@ -22,7 +22,7 @@ function Routes ()
                 <Link to="/" >Home</Link>
             </li>
             <li>
-                <Link to="/about">About</Link>
+                <Link to="/todo">Todo</Link>
             </li>
             <li>
                 <Link to="/login">Login</Link>
@@ -33,8 +33,8 @@ function Routes ()
             <Route exact path="/">
                 <Home />
             </Route>
-            <Route path="/about">
-                <About />
+            <Route path="/todo">
+                <Todo />
             </Route> 
             <Route path="/login" component={() => <Login setIsAuth = {setIsAuth}/>}/>
            <ProtectedRoute isAuth={isAuth} path="/profile" component={Profile} />
